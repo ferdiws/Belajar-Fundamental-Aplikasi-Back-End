@@ -33,11 +33,9 @@ class NotesService {
 
   getNoteById(id) {
     const note = this._notes.filter((n) => n.id === id)[0];
-
     if (!note) {
       throw new NotFoundError('Catatan tidak ditemukan');
     }
-
     return note;
   }
 
@@ -61,11 +59,9 @@ class NotesService {
 
   deleteNoteById(id) {
     const index = this._notes.findIndex((note) => note.id === id);
-
     if (index === -1) {
       throw new NotFoundError('Catatan gagal dihapus. Id tidak ditemukan');
     }
-
     this._notes.splice(index, 1);
   }
 }
